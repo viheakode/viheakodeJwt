@@ -22,7 +22,7 @@ public class RUserController {
     public ResponseEntity<Object> create(@RequestBody UserRequest userRequest){
         User user = new User();
         user.setUsername(userRequest.getUsername());
-        user.setEmail(userRequest.getPassword());
+        user.setEmail(userRequest.getEmail());
         user.setPassword(userRequest.getPassword());
         userServiceImp.createNew(user);
         return ApiResponseStructure.singleResponse("Created", user, HttpStatus.CREATED);
