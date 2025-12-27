@@ -40,19 +40,19 @@ public class CategoryServiceImp implements ICategoryService {
 
     @Override
     public Category deleteById(Long id) {
-        Category existed = categoryRepo.findById(id)
+        Category curr = categoryRepo.findById(id)
                 .orElseThrow(()-> new RuntimeException("Category not found"));
         categoryRepo.deleteById(id);
-        return existed;
+        return curr;
     }
 
     @Override
     public Category updateById(Long id, Category category) {
-        Category existed = categoryRepo.findById(id)
+        Category curr = categoryRepo.findById(id)
                 .orElseThrow(()-> new RuntimeException("Category not found"));
-        existed.setCategoryName(category.getCategoryName());
-        existed.setDescription(category.getDescription());
-        existed.setModifiedDate(new Date(System.currentTimeMillis()));
-        return categoryRepo.save(existed);
+        curr.setCategoryName(category.getCategoryName());
+        curr.setDescription(category.getDescription());
+        curr.setModifiedDate(new Date(System.currentTimeMillis()));
+        return categoryRepo.save(curr);
     }
 }
