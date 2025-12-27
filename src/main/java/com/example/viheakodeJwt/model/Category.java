@@ -6,23 +6,22 @@ import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Table(name = "tblUser")
+@Table(name = "tblCategory")
 @Data
-public class User {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long categoryId;
     private String uuid;
-    private String username;
-    private String email;
-    private String password;
+    private String categoryName;
+    private String description;
     private String status;
     private String publisher;
     private Date publishedDate;
     private Date modifiedDate;
 
-    public User() {
+    public Category() {
         this.status = "1";
         this.publisher = "admin";
         this.publishedDate = new Date(System.currentTimeMillis());
